@@ -57,8 +57,10 @@ class GPT2SentimentClassifier(torch.nn.Module):
 
     elif config.fine_tune_mode == 'LoRA':
       peft_config = LoraConfig(
-        r=8,
-        lora_alpha=32,
+        # r=8,
+        # lora_alpha=32,
+        r=16,
+        lora_alpha=64,
         lora_dropout=0.1,
         bias="none",
         target_modules=["query", "key", "value", "attention_dense"],
